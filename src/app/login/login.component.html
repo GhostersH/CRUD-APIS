@@ -1,0 +1,31 @@
+
+
+
+<header>  
+  <div class="container">  
+    <div class="row">  
+      <div class="col-md-4 offset-md-4">  
+        <h2 class="title">  
+          <img [src]="logoUrl" alt="Logo de mi sitio web" class="logo">   
+        </h2>  
+        <form class="form" (ngSubmit)="onSubmit()">  
+          <div class="form-group">    
+            <label for="username">USUARIO:</label>    
+            <input type="text" class="form-control" id="username" name="username" [(ngModel)]="username" required (keydown)="onlyNumbers($event)">    
+          </div>    
+          <div class="form-group">  
+            <label for="password">CONTRASEÑA:</label>  
+            <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" required>  
+          </div>  
+          <div class="form-group">  
+            <label for="emisorSelect">COMPAÑIA:</label>  
+            <select class="form-select" [(ngModel)]="selectedEmisor" name="emisorSelect" (change)="onChangeEmisor($event)">  
+              <option *ngFor="let emisor of emisores" [value]="emisor.NombreEmisor">{{ emisor }}</option>  
+            </select>  
+          </div>  
+          <button type="submit" class="btn btn-primary">INICIAR SESIÓN</button>  
+        </form>  
+      </div>  
+    </div>  
+  </div>  
+</header>  
